@@ -13,8 +13,9 @@ vim.pack.add({
     -- bufferline
     gh('akinsho/bufferline.nvim'),
 
-    -- deepseek
-    gh('FLYDonkey123/deepseek.nvim'),
+    -- claude
+    gh('nvim-lua/plenary.nvim'),
+    gh('greggh/claude-code.nvim'),
 
     -- lazygit
     gh('kdheepak/lazygit.nvim'),
