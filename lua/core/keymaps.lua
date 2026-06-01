@@ -24,6 +24,8 @@ map('n', 'gI', vim.lsp.buf.implementation, mapopts("LSP: Implementation"))
 map('n', '<c-k>', vim.lsp.buf.signature_help, mapopts("LSP: Signature Help"))
 map('n', '<space>f', function() vim.lsp.buf.format { async = true } end, mapopts("LSP: Format"))
 
+map('n', 'D', vim.diagnostic.open_float, mapopts("Open Diagnostic"))
+
 -- terminal设置
 -- 结果有toggleterm用了，不赖
 map('t', '<c-w>', '<c-\\><c-n><c-w>', opts)
