@@ -4,4 +4,5 @@ require('vim._core.ui2').enable({
 require('plugins')
 require('core.options')
 require('core.keymaps')
+require('core.user_command')
 require('lsp')
