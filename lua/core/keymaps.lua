@@ -22,7 +22,7 @@ map('n', 'gr', vim.lsp.buf.references, mapopts("LSP: References"))
 map('n', 'gk', vim.lsp.buf.hover, mapopts("LSP: Activate Hover"))
 map('n', 'gI', vim.lsp.buf.implementation, mapopts("LSP: Implementation"))
 map('n', '<c-k>', vim.lsp.buf.signature_help, mapopts("LSP: Signature Help"))
-map('n', '<space>f', function() vim.lsp.buf.format { async = true } end, mapopts("LSP: Format"))
+map('n', '<leader>fm', function() vim.lsp.buf.format { async = true } end, mapopts("LSP: Format"))
 
 map('n', 'D', vim.diagnostic.open_float, mapopts("Open Diagnostic"))
 map('n', '<leader>dd', function() vim.diagnostic.setloclist({open = true}) end, mapopts("Open Local Diagnostic"))
