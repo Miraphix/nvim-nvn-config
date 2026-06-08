@@ -25,8 +25,8 @@ map('n', '<c-k>', vim.lsp.buf.signature_help, mapopts("LSP: Signature Help"))
 map('n', '<space>f', function() vim.lsp.buf.format { async = true } end, mapopts("LSP: Format"))
 
 map('n', 'D', vim.diagnostic.open_float, mapopts("Open Diagnostic"))
-map('n', '<leader>do', function() vim.diagnostic.setloclist({open = true}) end, mapopts("Open Local Diagnostic"))
-map('n', '<leader>da', function() vim.diagnostic.setqflist({open = true}) end, mapopts("Open All Diagnostic"))
+map('n', '<leader>dd', function() vim.diagnostic.setloclist({open = true}) end, mapopts("Open Local Diagnostic"))
+map('n', '<leader>dq', function() vim.diagnostic.setqflist({open = true}) end, mapopts("Open All Diagnostic"))
 
 -- terminal设置
 -- 结果有toggleterm用了，不赖
