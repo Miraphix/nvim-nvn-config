@@ -17,6 +17,9 @@ vim.pack.add({
     gh('nvim-lua/plenary.nvim'),
     gh('greggh/claude-code.nvim'),
 
+    -- illuminate
+    gh('RRethy/vim-illuminate'),
+
     -- lazygit
     gh('kdheepak/lazygit.nvim'),
 
