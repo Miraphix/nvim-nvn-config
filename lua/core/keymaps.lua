@@ -87,7 +87,7 @@ map({'n', 'i', 'v'}, '<C-Z>', '<Esc>u')
 map({'n', 'i', 'v'}, '<C-S>', '<Esc>:w<CR>')
 map({'n', 'v'}, 'H', '^')
 map({'n', 'v'}, 'L', '$')
-map('n', 'J', 'j')
+-- map('n', 'J', 'j')
 map('i', 'jk', '<ESC>')
 
 -- NvimTree
