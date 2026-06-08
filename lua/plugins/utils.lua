@@ -22,3 +22,7 @@ require("toggleterm").setup {
 }
 
 require('claude-code').setup {}
+
+require('illuminate').configure {
+    min_count_to_highlight = 2,
+}
