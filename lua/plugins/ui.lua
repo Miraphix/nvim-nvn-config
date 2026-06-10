@@ -49,5 +49,8 @@ require('render-markdown').setup {
     render_modes = true,
     code = {
         border = 'thick',
-    }
+    },
+    html = { enable = false },
+    latex = { enable = false },
+    yaml = { enable = false },
 }
