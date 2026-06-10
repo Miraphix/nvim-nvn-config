@@ -38,6 +38,9 @@ vim.pack.add({
     gh('nvim-tree/nvim-web-devicons'),
     gh('nvim-treesitter/nvim-treesitter'),
 
+    -- render-markdown
+    gh('MeanderingProgrammer/render-markdown.nvim'),
+
     -- toggleterm
     gh('akinsho/toggleterm.nvim'),
 

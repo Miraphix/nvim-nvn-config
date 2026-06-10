@@ -44,3 +44,10 @@ require('lualine').setup {
     extensions = {},
 }
 
+-- render-markdown
+require('render-markdown').setup {
+    render_modes = true,
+    code = {
+        border = 'thick',
+    }
+}
