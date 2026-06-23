@@ -28,3 +28,14 @@ vim.api.nvim_create_user_command("Ghci", function()
     vim.cmd('split')
     vim.cmd('terminal ghci %')
 end, {nargs = '?', desc = 'Open GHCi for this file.'})
+
+vim.api.nvim_create_user_command("ToggleHLSearch", function()
+    -- Why can't I use NOT?
+    -- Why the Boolean options are tables?
+    local state = vim.opt.hlsearch
+    if state._value then
+        vim.opt.hlsearch = false
+    else
+        vim.opt.hlsearch = true
+    end
+end, {nargs = '?', desc = 'Toggle hlsearch option'})

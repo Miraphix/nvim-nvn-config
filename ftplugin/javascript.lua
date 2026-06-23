@@ -1,1 +1,1 @@
-vim.lsp.enable("eslint-lsp")
+vim.lsp.enable("ts_ls")
