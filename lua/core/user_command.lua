@@ -24,9 +24,23 @@ vim.api.nvim_create_user_command("XmakeCompileCommands", function()
 end, {nargs = '?', desc = 'Generate compile_commands.json'})
 
 vim.api.nvim_create_user_command("Ghci", function()
-    -- vim.cmd(string.format("TermExec cmd='ghci %s'", vim.fn.expand('%')))
+    -- 搜索项目根目录
+    local root = vim.fn.finddir('.git', '.;')
+    if root ~= '' then
+        root = vim.fn.fnamemodify(root, ':h')
+    else
+        root = vim.fn.getcwd()
+    end
+
+    -- 搜索项目配置文件
+    local matches = vim.fn.globpath(root, '*.cabal', false, true)
     vim.cmd('split')
-    vim.cmd('terminal ghci %')
+    if #matches > 0 then
+        -- 找到cabal项目
+        vim.cmd('terminal cabal repl')
+    else
+        vim.cmd('terminal ghci %')
+    end
 end, {nargs = '?', desc = 'Open GHCi for this file.'})
 
 vim.api.nvim_create_user_command("ToggleHLSearch", function()

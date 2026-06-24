@@ -16,8 +16,8 @@ local opts = mapopts(nil)
 map('n', '<F2>', ":echo '现在时间是' . strftime('%c') . ' 喵~'<CR>", opts)
 
 -- 调整窗口大小
-map('n', '<C-Up>', ':resize -2<CR>', opts)
-map('n', '<C-Down>', ':resize +2<CR>', opts)
+map('n', '<C-Up>', ':resize +2<CR>', opts)
+map('n', '<C-Down>', ':resize -2<CR>', opts)
 map('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 map('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
@@ -70,6 +70,11 @@ map('t', '<c-\\><c-\\>', '<c-\\><c-n>:ToggleTerm<cr>', mapopts("Toggle Term"))
 map('n', '<c-\\>f', ':ToggleTerm direction=float<cr>', mapopts("Toggle Float Term"))
 map('n', '<C-\\>h', ':ToggleTerm direction=horizontal<CR>', mapopts("Toggle Horizontal Term"))
 map('n', '<C-\\>v', ':ToggleTerm direction=vertical<CR>', mapopts("Toggle Vertival Term"))
+
+map('t', '<C-Up>', '<c-\\><c-n>:resize +2<CR>', opts)
+map('t', '<C-Down>', '<c-\\><c-n>:resize -2<CR>', opts)
+map('t', '<C-Left>', '<c-\\><c-n>:vertical resize -2<CR>', opts)
+map('t', '<C-Right>', '<c-\\><c-n>:vertical resize +2<CR>', opts)
 
 -- BufferLine设置
 map({'n', 'i'}, '<C-h>', '<Esc>:BufferLineCyclePrev<CR>', opts)
