@@ -23,6 +23,7 @@ vim.opt.foldmethod = "expr"                     -- 折叠方式使用表达式
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- 使用 Treesitter 表达式折叠
 vim.opt.foldlevel = 99                          -- 打开文件时默认不折叠
 vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- 配置 win32yank.exe 实现 wsl 与 windows 剪贴板互通
 vim.opt.clipboard = "unnamedplus"

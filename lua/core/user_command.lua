@@ -35,6 +35,28 @@ vim.api.nvim_create_user_command("Ghci", function()
     -- 搜索项目配置文件
     local matches = vim.fn.globpath(root, '*.cabal', false, true)
     vim.cmd('split')
+    vim.cmd('res 10')
+    if #matches > 0 then
+        -- 找到cabal项目
+        vim.cmd('terminal cabal repl')
+    else
+        vim.cmd('terminal ghci %')
+    end
+end, {nargs = '?', desc = 'Open GHCi for this file.'})
+
+vim.api.nvim_create_user_command("Ghciv", function()
+    -- 搜索项目根目录
+    local root = vim.fn.finddir('.git', '.;')
+    if root ~= '' then
+        root = vim.fn.fnamemodify(root, ':h')
+    else
+        root = vim.fn.getcwd()
+    end
+
+    -- 搜索项目配置文件
+    local matches = vim.fn.globpath(root, '*.cabal', false, true)
+    vim.cmd('vsplit')
+    vim.cmd('vertical:res 40')
     if #matches > 0 then
         -- 找到cabal项目
         vim.cmd('terminal cabal repl')
