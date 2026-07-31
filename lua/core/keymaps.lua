@@ -83,17 +83,17 @@ map('n', '<leader>bo', '<cmd>BufferLineCloseOthers<CR>', mapopts("Close Other Bu
 map('n', '<leader>bd', '<cmd>bdelete<CR>', mapopts("Close This Buffer"))
 
 -- Code-Runner
-map('n', '<leader>rr', ':RunCode<CR>', opts)
-map('n', '<leader>rc', ':RunClose<CR>', opts)
+-- map('n', '<leader>rr', ':RunCode<CR>', opts)
+-- map('n', '<leader>rc', ':RunClose<CR>', opts)
 
 -- makefile
-map('n', '<leader>m ', ':make ', opts)
-map('n', '<leader>mm', ':make<CR>', opts)
-map('n', '<leader>mc', ':make clean<CR>', opts)
-map('n', '<leader>mr', ':make run<CR>', opts)
-map('n', '<leader>mf', ':make format<CR>', opts)
-map('n', '<leader>md', ':make debug<CR>', opts)
-map('n', '<leader>mb', ':make build<CR>', opts)
+map('n', '<leader>m ', ':TerminalMake ', opts)
+map('n', '<leader>mm', ':TerminalMake<CR>', opts)
+map('n', '<leader>mc', ':TerminalMake clean<CR>', opts)
+map('n', '<leader>mr', ':TerminalMake run<CR>', opts)
+map('n', '<leader>mf', ':TerminalMake format<CR>', opts)
+map('n', '<leader>md', ':TerminalMake debug<CR>', opts)
+map('n', '<leader>mb', ':TerminalMake build<CR>', opts)
 
 -- justfile
 -- map('n', '<leader>j ', ':MyJustArg ', opts)

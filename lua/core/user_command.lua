@@ -23,47 +23,64 @@ vim.api.nvim_create_user_command("XmakeCompileCommands", function()
     vim.cmd(string.format("!xmake project -k compile_commands"))
 end, {nargs = '?', desc = 'Generate compile_commands.json'})
 
-vim.api.nvim_create_user_command("Ghci", function()
-    -- 搜索项目根目录
+-- 搜索项目根目录
+local function find_git_root()
+    ---@type string
     local root = vim.fn.finddir('.git', '.;')
     if root ~= '' then
         root = vim.fn.fnamemodify(root, ':h')
     else
         root = vim.fn.getcwd()
     end
+    return root
+end
+
+local function terminal_cmd(cmd, vsplit)
+    if vsplit then
+        vim.cmd('vsplit')
+        vim.cmd('vertical:res 40')
+    else
+        vim.cmd('split')
+        vim.cmd('res 10')
+    end
+    if cmd then
+        vim.cmd('terminal ' .. cmd)
+    end
+end
+
+local function project_run(configfile, cmd1, cmd0, vsplit)
+    -- 搜索项目根目录
+    local root = find_git_root()
 
     -- 搜索项目配置文件
-    local matches = vim.fn.globpath(root, '*.cabal', false, true)
-    vim.cmd('split')
-    vim.cmd('res 10')
+    local matches = vim.fn.globpath(root, configfile, false, true)
     if #matches > 0 then
         -- 找到cabal项目
-        vim.cmd('terminal cabal repl')
+        terminal_cmd(cmd1, vsplit)
     else
-        vim.cmd('terminal ghci %')
+        terminal_cmd(cmd0, vsplit)
     end
+end
+
+vim.api.nvim_create_user_command("Ghci", function()
+    project_run("*.cabal", "cabal repl", "ghci %")
 end, {nargs = '?', desc = 'Open GHCi for this file.'})
 
 vim.api.nvim_create_user_command("Ghciv", function()
-    -- 搜索项目根目录
-    local root = vim.fn.finddir('.git', '.;')
-    if root ~= '' then
-        root = vim.fn.fnamemodify(root, ':h')
-    else
-        root = vim.fn.getcwd()
-    end
-
-    -- 搜索项目配置文件
-    local matches = vim.fn.globpath(root, '*.cabal', false, true)
-    vim.cmd('vsplit')
-    vim.cmd('vertical:res 40')
-    if #matches > 0 then
-        -- 找到cabal项目
-        vim.cmd('terminal cabal repl')
-    else
-        vim.cmd('terminal ghci %')
-    end
+    project_run("*.cabal", "cabal repl", "ghci %", true)
 end, {nargs = '?', desc = 'Open GHCi for this file.'})
+
+vim.api.nvim_create_user_command("UVRunThisFile", function()
+    project_run("pyproject.toml", "uv run %")
+end, {nargs = '?', desc = 'Run this file with uv project.'})
+
+vim.api.nvim_create_user_command("UVRunTaskRun", function()
+    project_run("pyproject.toml", "uv run task run")
+end, {nargs = '?', desc = 'Run taskipy task'})
+
+vim.api.nvim_create_user_command("TerminalMake", function(input)
+    project_run("Makefile", 'make' .. input.args)
+end, {nargs = '?', desc = 'Make'})
 
 vim.api.nvim_create_user_command("ToggleHLSearch", function()
     -- Why can't I use NOT?
