@@ -52,7 +52,7 @@ vim.opt.listchars = {
 -- 配置默认shell
 -- 检测操作系统并设置 shell
 if vim.fn.has("win32") == 1 then
-    vim.opt.shell = "pwsh"          -- Windows 使用 PowerShell Core
+    vim.opt.shell = "powershell.exe"          -- Windows 使用 PowerShell Core
 else
     vim.opt.shell = "zsh"           -- Linux 使用 zsh
 end
