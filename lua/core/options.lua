@@ -49,6 +49,21 @@ vim.opt.listchars = {
     precedes = "<", -- 超出屏幕左侧的文本显示为 "<"
 }
 
+-- 配置默认shell
+-- 检测操作系统并设置 shell
+if vim.fn.has("win32") == 1 then
+    vim.opt.shell = "pwsh"          -- Windows 使用 PowerShell Core
+else
+    vim.opt.shell = "zsh"           -- Linux 使用 zsh
+end
+
+-- （可选）为 pwsh 调整命令行参数，以获得更好的交互体验
+if vim.fn.has("win32") == 1 then
+    vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+    vim.opt.shellpipe = "| Out-Host; exit $LASTEXITCODE"
+    vim.opt.shellredir = "| Out-File -Encoding UTF8"
+end
+
 vim.cmd [[ colo monokai ]]
 
 vim.opt.display:append("uhex")  -- 只在必要时显示十六进制
