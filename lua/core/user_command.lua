@@ -79,7 +79,7 @@ vim.api.nvim_create_user_command("UVRunTaskRun", function()
 end, {nargs = '?', desc = 'Run taskipy task'})
 
 vim.api.nvim_create_user_command("TerminalMake", function(input)
-    project_run("Makefile", 'make' .. input.args)
+    project_run("Makefile", 'make ' .. input.args)
 end, {nargs = '?', desc = 'Make'})
 
 vim.api.nvim_create_user_command("ToggleHLSearch", function()
