@@ -76,9 +76,14 @@ map('t', '<C-Down>', '<c-\\><c-n>:resize -2<CR>', opts)
 map('t', '<C-Left>', '<c-\\><c-n>:vertical resize -2<CR>', opts)
 map('t', '<C-Right>', '<c-\\><c-n>:vertical resize +2<CR>', opts)
 
+-- 方向键
+map('i', '<C-l>', '<Cmd>normal! l<CR>', opts)
+map('i', '<C-h>', '<Cmd>normal! h<CR>', opts)
+map('')
+
 -- BufferLine设置
-map({'n', 'i'}, '<C-h>', '<Esc>:BufferLineCyclePrev<CR>', opts)
-map({'n', 'i'}, '<C-l>', '<Esc>:BufferLineCycleNext<CR>', opts)
+map('n', '<C-h>', '<Esc>:BufferLineCyclePrev<CR>', opts)
+map('n', '<C-l>', '<Esc>:BufferLineCycleNext<CR>', opts)
 map('n', '<leader>bo', '<cmd>BufferLineCloseOthers<CR>', mapopts("Close Other Buffers"))
 map('n', '<leader>bd', '<cmd>bdelete<CR>', mapopts("Close This Buffer"))
 
