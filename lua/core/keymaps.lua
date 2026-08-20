@@ -79,7 +79,6 @@ map('t', '<C-Right>', '<c-\\><c-n>:vertical resize +2<CR>', opts)
 -- 方向键
 map('i', '<C-l>', '<Cmd>normal! l<CR>', opts)
 map('i', '<C-h>', '<Cmd>normal! h<CR>', opts)
-map('')
 
 -- BufferLine设置
 map('n', '<C-h>', '<Esc>:BufferLineCyclePrev<CR>', opts)
